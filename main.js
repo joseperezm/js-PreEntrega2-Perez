@@ -84,8 +84,35 @@ function calcularTiempoParaSiguienteGrado() {
       alert(`${usuario.nombre}, ¡ya has superado el tiempo necesario para obtener el cinturón ${gradoSiguiente} por ${añosSuperados} años! Te recomiendo hablar con tu instructor...`);
     }
 
+    const verDetalleGrado = confirm(`¿Deseas ver el detalle del cinturón ${gradoSiguiente}?`);
+    if (verDetalleGrado) {
+      mostrarDetalleGrado(gradoSiguiente);
+    }
+
     seguirCalculando = confirm(`¿${usuario.nombre}, deseas calcular nuevamente el tiempo para el siguiente grado?`);
   }
+}
+
+function mostrarDetalleGrado(grado) {
+  const grados = [
+    { nombre: "Blanco", descripcion: "Grado inicial en el Jiu-Jitsu Basileño: Fundamentos básicos y dedicación en el aprendizaje y práctica regular del BJJ." },
+    { nombre: "Azul", descripcion: "Grado intermedio en el Jiu-Jitsu Basileño: Conocimiento sólido de las técnicas fundamentales, capacidad para aplicarlas en situaciones de combate y experiencia en la participación en competiciones." },
+    { nombre: "Purpura", descripcion: "Grado intermedio en el Jiu-Jitsu Basileño: Dominio de una amplia variedad de técnicas, habilidad para adaptarse a diferentes estilos de lucha y una comprensión profunda de las estrategias del BJJ." },
+    { nombre: "Cafe", descripcion: "Grado avanzado en el Jiu-Jitsu Basileño: Perfeccionamiento de técnicas avanzadas, capacidad para anticipar movimientos del oponente, experiencia en competiciones de alto nivel y demostración de liderazgo en el arte marcial." },
+    { nombre: "Negro", descripcion: "Grado maestro en el Jiu-Jitsu Basileño: Maestría técnica y táctica, experiencia en competiciones destacadas, habilidad para enseñar y transmitir conocimientos a otros practicantes." },
+    { nombre: "Coral", descripcion: "Grado excepcional en el Jiu-Jitsu Basileño: Reconocimiento como una autoridad destacada en el BJJ, contribuciones significativas al desarrollo y promoción del arte marcial, liderazgo en la comunidad y un legado duradero en el BJJ." }
+  ];
+
+  let detalleGrado = "";
+
+  for (let i = 0; i < grados.length; i++) {
+    if (grados[i].nombre.toLowerCase() === grado) {
+      detalleGrado = `Detalle del cinturón ${grados[i].nombre}:\n${grados[i].descripcion}`;
+      break;
+    }
+  }
+
+  alert(detalleGrado);
 }
 
 calcularTiempoParaSiguienteGrado();
