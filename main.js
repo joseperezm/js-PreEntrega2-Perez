@@ -91,7 +91,7 @@ function calcularTiempoParaSiguienteGrado() {
 
     const verDetalleOtroGrado = confirm(`¿Deseas ver el detalle de otro cinturón?`);
     if (verDetalleOtroGrado) {
-      const otroGrado = prompt("¿Cuál es el nombre del cinturón que deseas ver?");
+      const otroGrado = prompt("¿Cuál es el nombre del cinturón que deseas ver?\n(blanco, azul, purpura, cafe, negro o coral)");
       mostrarDetalleGrado(otroGrado);
     }
 
@@ -102,11 +102,11 @@ function calcularTiempoParaSiguienteGrado() {
 function mostrarDetalleGrado(grado) {
   const grados = [
     { nombre: "blanco", descripcion: "Grado inicial en el Jiu-Jitsu Basileño: Fundamentos básicos y dedicación en el aprendizaje y práctica regular del BJJ." },
-    { nombre: "azul", descripcion: "Grado intermedio en el Jiu-Jitsu Basileño: Conocimiento sólido de las técnicas fundamentales, capacidad para aplicarlas en situaciones de combate y experiencia en la participación en competiciones." },
-    { nombre: "purpura", descripcion: "Grado intermedio en el Jiu-Jitsu Basileño: Dominio de una amplia variedad de técnicas, habilidad para adaptarse a diferentes estilos de lucha y una comprensión profunda de las estrategias del BJJ." },
-    { nombre: "cafe", descripcion: "Grado avanzado en el Jiu-Jitsu Basileño: Perfeccionamiento de técnicas avanzadas, capacidad para enseñar y transmitir conocimientos a estudiantes y participación destacada en competiciones de alto nivel." },
-    { nombre: "negro", descripcion: "Grado experto en el Jiu-Jitsu Basileño: Dominio completo del arte, habilidad para desarrollar nuevas técnicas y contribuir al avance y difusión del BJJ a nivel mundial." },
-    { nombre: "coral", descripcion: "Grado experto en el Jiu-Jitsu Basileño: Dominio completo del arte, habilidad para desarrollar nuevas técnicas y contribuir al avance y difusión del BJJ a nivel mundial." }
+    { nombre: "azul", descripcion: "Grado básico en el Jiu-Jitsu Basileño: Conocimiento sólido de las técnicas fundamentales, capacidad para aplicarlas en situaciones de combate y experiencia en la participación en competiciones. Mínimo 2 años de entrenamiento." },
+    { nombre: "purpura", descripcion: "Grado intermedio en el Jiu-Jitsu Basileño: Dominio de una amplia variedad de técnicas, habilidad para adaptarse a diferentes estilos de lucha y una comprensión profunda de las estrategias del BJJ. Mínimo 5 años de entrenamiento." },
+    { nombre: "cafe", descripcion: "Grado avanzado en el Jiu-Jitsu Basileño: Perfeccionamiento de técnicas avanzadas, capacidad para enseñar y transmitir conocimientos a estudiantes y participación destacada en competiciones de alto nivel. Mínimo 7 años de entrenamiento." },
+    { nombre: "negro", descripcion: "Grado experto en el Jiu-Jitsu Basileño: Dominio completo del arte, habilidad para desarrollar nuevas técnicas y contribuir al avance y difusión del BJJ a nivel mundial. Mínimo 12 años de entrenamiento." },
+    { nombre: "coral", descripcion: "Grado maestro en el Jiu-Jitsu Basileño: Reconocido nivel de maestría, honra la experiencia y sabiduría en Brazilian Jiu-Jitsu. Mínimo 25 años de entrenamiento." }
   ];
 
   const gradoEncontrado = grados.find(gradoObj => gradoObj.nombre === grado);
