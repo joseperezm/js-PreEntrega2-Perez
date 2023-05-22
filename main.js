@@ -91,7 +91,7 @@ function calcularTiempoParaSiguienteGrado() { // Aquí se realiza el cálculo de
 
     const verDetalleOtroGrado = confirm(`¿Deseas ver el detalle de otro cinturón?`); // Pregunta al usuario si desea ver el detalle de otro grado
     if (verDetalleOtroGrado) {
-      const otroGrado = prompt("¿Cuál es el nombre del cinturón que deseas ver?\n(blanco, azul, purpura, cafe, negro o coral)"); // Solicita al usuario el nombre del grado que desea ver
+      const otroGrado = prompt("¿Cuál es el nombre del cinturón que deseas ver?\n(blanco, azul, purpura, cafe, negro o coral)").toLowerCase(); // Solicita al usuario el nombre del grado que desea ver
       mostrarDetalleGrado(otroGrado); // Llama a la función mostrarDetalleGrado para mostrar el detalle del grado especificado por el usuario
     }
 
