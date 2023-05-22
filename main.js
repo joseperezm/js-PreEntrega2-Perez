@@ -1,6 +1,6 @@
 function calcularTiempoParaSiguienteGrado() {
   let seguirCalculando = true;
-  
+
   while (seguirCalculando) {
     let usuario = {};
     usuario.gradoActual = prompt("¿Cuál es tu grado actual? (blanco, azul, purpura, cafe, negro)").toLowerCase();
@@ -23,7 +23,11 @@ function calcularTiempoParaSiguienteGrado() {
         añosParaSiguienteGrado = 5 - usuario.añosEntrenando;
         gradoSiguiente = "purpura";
       } else {
-        alert("No llevas el tiempo suficiente para ser cinturón azul...");
+        añosParaSiguienteGrado = 2 - usuario.añosEntrenando;
+        if (añosParaSiguienteGrado < 0) {
+          añosParaSiguienteGrado = 0;
+        }
+        alert(`No llevas el tiempo suficiente para ser cinturón azul. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
         seguirCalculando = confirm("¿Deseas calcular nuevamente el tiempo para el siguiente grado?");
         continue;
       }
@@ -32,7 +36,11 @@ function calcularTiempoParaSiguienteGrado() {
         añosParaSiguienteGrado = 7 - usuario.añosEntrenando;
         gradoSiguiente = "cafe";
       } else {
-        alert("No llevas el tiempo suficiente para ser cinturón purpura...");
+        añosParaSiguienteGrado = 5 - usuario.añosEntrenando;
+        if (añosParaSiguienteGrado < 0) {
+          añosParaSiguienteGrado = 0;
+        }
+        alert(`No llevas el tiempo suficiente para ser cinturón purpura. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
         seguirCalculando = confirm("¿Deseas calcular nuevamente el tiempo para el siguiente grado?");
         continue;
       }
@@ -41,7 +49,11 @@ function calcularTiempoParaSiguienteGrado() {
         añosParaSiguienteGrado = 10 - usuario.añosEntrenando;
         gradoSiguiente = "negro";
       } else {
-        alert("No llevas el tiempo suficiente para ser cinturón cafe...");
+        añosParaSiguienteGrado = 7 - usuario.añosEntrenando;
+        if (añosParaSiguienteGrado < 0) {
+          añosParaSiguienteGrado = 0;
+        }
+        alert(`No llevas el tiempo suficiente para ser cinturón cafe. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
         seguirCalculando = confirm("¿Deseas calcular nuevamente el tiempo para el siguiente grado?");
         continue;
       }
@@ -50,7 +62,11 @@ function calcularTiempoParaSiguienteGrado() {
         añosParaSiguienteGrado = 25 - usuario.añosEntrenando;
         gradoSiguiente = "coral";
       } else {
-        alert("No llevas el tiempo suficiente para ser cinturón negro...");
+        añosParaSiguienteGrado = 12 - usuario.añosEntrenando;
+        if (añosParaSiguienteGrado < 0) {
+          añosParaSiguienteGrado = 0;
+        }
+        alert(`No llevas el tiempo suficiente para ser cinturón negro. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
         seguirCalculando = confirm("¿Deseas calcular nuevamente el tiempo para el siguiente grado?");
         continue;
       }
