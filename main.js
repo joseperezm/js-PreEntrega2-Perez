@@ -86,12 +86,13 @@ function calcularTiempoParaSiguienteGrado() {
 
     const verDetalleGrado = confirm(`¿Deseas ver el detalle del cinturón ${gradoSiguiente}?`);
     if (verDetalleGrado) {
-      const gradoEncontrado = grados.find((grado) => grado.nombre.toLowerCase() === gradoSiguiente);
-      if (gradoEncontrado) {
-        mostrarDetalleGrado(gradoEncontrado);
-      } else {
-        alert(`No se encontró información para el cinturón ${gradoSiguiente}.`);
-      }
+      mostrarDetalleGrado(gradoSiguiente);
+    }
+
+    const verDetalleOtroGrado = confirm(`¿Deseas ver el detalle de otro cinturón?`);
+    if (verDetalleOtroGrado) {
+      const otroGrado = prompt("¿Cuál es el nombre del cinturón que deseas ver?");
+      mostrarDetalleGrado(otroGrado);
     }
 
     seguirCalculando = confirm(`¿${usuario.nombre}, deseas calcular nuevamente el tiempo para el siguiente grado?`);
@@ -100,28 +101,21 @@ function calcularTiempoParaSiguienteGrado() {
 
 function mostrarDetalleGrado(grado) {
   const grados = [
-    { nombre: "Blanco", descripcion: "Grado inicial en el Jiu-Jitsu Basileño: Fundamentos básicos y dedicación en el aprendizaje y práctica regular del BJJ." },
-    { nombre: "Azul", descripcion: "Grado intermedio en el Jiu-Jitsu Basileño: Conocimiento sólido de las técnicas fundamentales, capacidad para aplicarlas en situaciones de combate y experiencia en la participación en competiciones." },
-    { nombre: "Purpura", descripcion: "Grado intermedio en el Jiu-Jitsu Basileño: Dominio de una amplia variedad de técnicas, habilidad para adaptarse a diferentes estilos de lucha y una comprensión profunda de las estrategias del BJJ." },
-    { nombre: "Cafe", descripcion: "Grado avanzado en el Jiu-Jitsu Basileño: Perfeccionamiento de técnicas avanzadas, capacidad para anticipar movimientos del oponente, experiencia en competiciones de alto nivel y demostración de liderazgo en el arte marcial." },
-    { nombre: "Negro", descripcion: "Grado maestro en el Jiu-Jitsu Basileño: Amplio conocimiento y dominio de todas las técnicas del BJJ, habilidad para enseñar y transmitir conocimientos a otros practicantes, y contribución significativa al desarrollo del arte marcial." }
+    { nombre: "blanco", descripcion: "Grado inicial en el Jiu-Jitsu Basileño: Fundamentos básicos y dedicación en el aprendizaje y práctica regular del BJJ." },
+    { nombre: "azul", descripcion: "Grado intermedio en el Jiu-Jitsu Basileño: Conocimiento sólido de las técnicas fundamentales, capacidad para aplicarlas en situaciones de combate y experiencia en la participación en competiciones." },
+    { nombre: "purpura", descripcion: "Grado intermedio en el Jiu-Jitsu Basileño: Dominio de una amplia variedad de técnicas, habilidad para adaptarse a diferentes estilos de lucha y una comprensión profunda de las estrategias del BJJ." },
+    { nombre: "cafe", descripcion: "Grado avanzado en el Jiu-Jitsu Basileño: Perfeccionamiento de técnicas avanzadas, capacidad para enseñar y transmitir conocimientos a estudiantes y participación destacada en competiciones de alto nivel." },
+    { nombre: "negro", descripcion: "Grado experto en el Jiu-Jitsu Basileño: Dominio completo del arte, habilidad para desarrollar nuevas técnicas y contribuir al avance y difusión del BJJ a nivel mundial." },
+    { nombre: "coral", descripcion: "Grado experto en el Jiu-Jitsu Basileño: Dominio completo del arte, habilidad para desarrollar nuevas técnicas y contribuir al avance y difusión del BJJ a nivel mundial." }
   ];
 
-  const gradoEncontrado = grados.find((g) => g.nombre.toLowerCase() === grado.nombre.toLowerCase());
+  const gradoEncontrado = grados.find(gradoObj => gradoObj.nombre === grado);
+
   if (gradoEncontrado) {
-    alert(`Detalle del cinturón ${gradoEncontrado.nombre}: ${gradoEncontrado.descripcion}`);
+    alert(`Detalle del cinturón ${gradoEncontrado.nombre}:\n${gradoEncontrado.descripcion}`);
   } else {
-    alert(`No se encontró información para el cinturón ${grado.nombre}.`);
+    alert(`No se encontró información para el cinturón ${grado}.`);
   }
 }
-
-const grados = [
-  { nombre: "blanco", tiempo: 2 },
-  { nombre: "azul", tiempo: 5 },
-  { nombre: "purpura", tiempo: 7 },
-  { nombre: "cafe", tiempo: 10 },
-  { nombre: "negro", tiempo: 12 },
-  { nombre: "coral", tiempo: 25 }
-];
 
 calcularTiempoParaSiguienteGrado();
