@@ -86,7 +86,12 @@ function calcularTiempoParaSiguienteGrado() {
 
     const verDetalleGrado = confirm(`¿Deseas ver el detalle del cinturón ${gradoSiguiente}?`);
     if (verDetalleGrado) {
-      mostrarDetalleGrado(gradoSiguiente);
+      const gradoEncontrado = grados.find((grado) => grado.nombre.toLowerCase() === gradoSiguiente);
+      if (gradoEncontrado) {
+        mostrarDetalleGrado(gradoEncontrado);
+      } else {
+        alert(`No se encontró información para el cinturón ${gradoSiguiente}.`);
+      }
     }
 
     seguirCalculando = confirm(`¿${usuario.nombre}, deseas calcular nuevamente el tiempo para el siguiente grado?`);
@@ -99,20 +104,24 @@ function mostrarDetalleGrado(grado) {
     { nombre: "Azul", descripcion: "Grado intermedio en el Jiu-Jitsu Basileño: Conocimiento sólido de las técnicas fundamentales, capacidad para aplicarlas en situaciones de combate y experiencia en la participación en competiciones." },
     { nombre: "Purpura", descripcion: "Grado intermedio en el Jiu-Jitsu Basileño: Dominio de una amplia variedad de técnicas, habilidad para adaptarse a diferentes estilos de lucha y una comprensión profunda de las estrategias del BJJ." },
     { nombre: "Cafe", descripcion: "Grado avanzado en el Jiu-Jitsu Basileño: Perfeccionamiento de técnicas avanzadas, capacidad para anticipar movimientos del oponente, experiencia en competiciones de alto nivel y demostración de liderazgo en el arte marcial." },
-    { nombre: "Negro", descripcion: "Grado maestro en el Jiu-Jitsu Basileño: Maestría técnica y táctica, experiencia en competiciones destacadas, habilidad para enseñar y transmitir conocimientos a otros practicantes." },
-    { nombre: "Coral", descripcion: "Grado excepcional en el Jiu-Jitsu Basileño: Reconocimiento como una autoridad destacada en el BJJ, contribuciones significativas al desarrollo y promoción del arte marcial, liderazgo en la comunidad y un legado duradero en el BJJ." }
+    { nombre: "Negro", descripcion: "Grado maestro en el Jiu-Jitsu Basileño: Amplio conocimiento y dominio de todas las técnicas del BJJ, habilidad para enseñar y transmitir conocimientos a otros practicantes, y contribución significativa al desarrollo del arte marcial." }
   ];
 
-  let detalleGrado = "";
-
-  for (let i = 0; i < grados.length; i++) {
-    if (grados[i].nombre.toLowerCase() === grado) {
-      detalleGrado = `Detalle del cinturón ${grados[i].nombre}:\n${grados[i].descripcion}`;
-      break;
-    }
+  const gradoEncontrado = grados.find((g) => g.nombre.toLowerCase() === grado.nombre.toLowerCase());
+  if (gradoEncontrado) {
+    alert(`Detalle del cinturón ${gradoEncontrado.nombre}: ${gradoEncontrado.descripcion}`);
+  } else {
+    alert(`No se encontró información para el cinturón ${grado.nombre}.`);
   }
-
-  alert(detalleGrado);
 }
+
+const grados = [
+  { nombre: "blanco", tiempo: 2 },
+  { nombre: "azul", tiempo: 5 },
+  { nombre: "purpura", tiempo: 7 },
+  { nombre: "cafe", tiempo: 10 },
+  { nombre: "negro", tiempo: 12 },
+  { nombre: "coral", tiempo: 25 }
+];
 
 calcularTiempoParaSiguienteGrado();
