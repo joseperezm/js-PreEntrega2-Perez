@@ -3,6 +3,7 @@ function calcularTiempoParaSiguienteGrado() {
 
   while (seguirCalculando) {
     let usuario = {};
+    usuario.nombre = prompt("¿Cuál es tu nombre?");
     usuario.gradoActual = prompt("¿Cuál es tu grado actual? (blanco, azul, purpura, cafe, negro)").toLowerCase();
     usuario.añosEntrenando = parseInt(prompt("¿Cuántos años llevas entrenando?"));
 
@@ -14,8 +15,8 @@ function calcularTiempoParaSiguienteGrado() {
         añosParaSiguienteGrado = 2 - usuario.añosEntrenando;
         gradoSiguiente = "azul";
       } else {
-        alert("Debe haber ingresado un número positivo de años.");
-        seguirCalculando = confirm("¿Deseas calcular nuevamente el tiempo para el siguiente grado?");
+        alert(`Debe haber ingresado un número positivo de años, ${usuario.nombre}.`);
+        seguirCalculando = confirm(`¿${usuario.nombre}, deseas calcular nuevamente el tiempo para el siguiente grado?`);
         continue;
       }
     } else if (usuario.gradoActual === "azul") {
@@ -27,8 +28,8 @@ function calcularTiempoParaSiguienteGrado() {
         if (añosParaSiguienteGrado < 0) {
           añosParaSiguienteGrado = 0;
         }
-        alert(`No llevas el tiempo suficiente para ser cinturón azul. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
-        seguirCalculando = confirm("¿Deseas calcular nuevamente el tiempo para el siguiente grado?");
+        alert(`No llevas el tiempo suficiente para ser cinturón azul, ${usuario.nombre}. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
+        seguirCalculando = confirm(`¿${usuario.nombre}, deseas calcular nuevamente el tiempo para el siguiente grado?`);
         continue;
       }
     } else if (usuario.gradoActual === "purpura") {
@@ -40,8 +41,8 @@ function calcularTiempoParaSiguienteGrado() {
         if (añosParaSiguienteGrado < 0) {
           añosParaSiguienteGrado = 0;
         }
-        alert(`No llevas el tiempo suficiente para ser cinturón purpura. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
-        seguirCalculando = confirm("¿Deseas calcular nuevamente el tiempo para el siguiente grado?");
+        alert(`No llevas el tiempo suficiente para ser cinturón purpura, ${usuario.nombre}. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
+        seguirCalculando = confirm(`¿${usuario.nombre}, deseas calcular nuevamente el tiempo para el siguiente grado?`);
         continue;
       }
     } else if (usuario.gradoActual === "cafe") {
@@ -53,8 +54,8 @@ function calcularTiempoParaSiguienteGrado() {
         if (añosParaSiguienteGrado < 0) {
           añosParaSiguienteGrado = 0;
         }
-        alert(`No llevas el tiempo suficiente para ser cinturón cafe. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
-        seguirCalculando = confirm("¿Deseas calcular nuevamente el tiempo para el siguiente grado?");
+        alert(`No llevas el tiempo suficiente para ser cinturón cafe, ${usuario.nombre}. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
+        seguirCalculando = confirm(`¿${usuario.nombre}, deseas calcular nuevamente el tiempo para el siguiente grado?`);
         continue;
       }
     } else if (usuario.gradoActual === "negro") {
@@ -66,23 +67,23 @@ function calcularTiempoParaSiguienteGrado() {
         if (añosParaSiguienteGrado < 0) {
           añosParaSiguienteGrado = 0;
         }
-        alert(`No llevas el tiempo suficiente para ser cinturón negro. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
-        seguirCalculando = confirm("¿Deseas calcular nuevamente el tiempo para el siguiente grado?");
+        alert(`No llevas el tiempo suficiente para ser cinturón negro, ${usuario.nombre}. Faltan ${añosParaSiguienteGrado} años para alcanzarlo.`);
+        seguirCalculando = confirm(`¿${usuario.nombre}, deseas calcular nuevamente el tiempo para el siguiente grado?`);
         continue;
       }
     } else {
       alert("El grado ingresado no es válido.");
-      seguirCalculando = confirm("¿Deseas calcular nuevamente el tiempo para el siguiente grado?");
+      seguirCalculando = confirm(`¿${usuario.nombre}, deseas calcular nuevamente el tiempo para el siguiente grado?`);
       continue;
     }
 
     if (añosParaSiguienteGrado >= 0) {
-      alert(`Te faltan ${añosParaSiguienteGrado} años para obtener el cinturón ${gradoSiguiente}. ¡Vamos que se puede!`);
+      alert(`${usuario.nombre}, te faltan ${añosParaSiguienteGrado} años para obtener el cinturón ${gradoSiguiente}. ¡Vamos que se puede!`);
     } else {
-      alert(`¡Ya has superado el tiempo necesario para obtener el cinturón ${gradoSiguiente}! Te recomiendo hablar con tu instructor...`);
+      alert(`${usuario.nombre}, ¡ya has superado el tiempo necesario para obtener el cinturón ${gradoSiguiente}! Te recomiendo hablar con tu instructor...`);
     }
 
-    seguirCalculando = confirm("¿Deseas calcular nuevamente el tiempo para el siguiente grado?");
+    seguirCalculando = confirm(`¿${usuario.nombre}, deseas calcular nuevamente el tiempo para el siguiente grado?`);
   }
 }
 
