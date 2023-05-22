@@ -80,7 +80,8 @@ function calcularTiempoParaSiguienteGrado() {
     if (añosParaSiguienteGrado >= 0) {
       alert(`${usuario.nombre}, te faltan ${añosParaSiguienteGrado} años para obtener el cinturón ${gradoSiguiente}. ¡Vamos que se puede!`);
     } else {
-      alert(`${usuario.nombre}, ¡ya has superado el tiempo necesario para obtener el cinturón ${gradoSiguiente}! Te recomiendo hablar con tu instructor...`);
+      let añosSuperados = Math.abs(añosParaSiguienteGrado);
+      alert(`${usuario.nombre}, ¡ya has superado el tiempo necesario para obtener el cinturón ${gradoSiguiente} por ${añosSuperados} años! Te recomiendo hablar con tu instructor...`);
     }
 
     seguirCalculando = confirm(`¿${usuario.nombre}, deseas calcular nuevamente el tiempo para el siguiente grado?`);
